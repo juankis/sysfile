@@ -21,6 +21,36 @@ class CreateDepartmentsTable extends Migration
                   ->onDelete('cascade');
             $table->timestamps();
         });
+
+        DB::table('departments')->insert(
+            array(
+                'id' => '1',
+                'name' => 'Calama A',
+                'customer_id' => '1',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            )
+        );
+
+        DB::table('departments')->insert(
+            array(
+                'id' => '2',
+                'name' => 'Calama B',
+                'customer_id' => '1',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            )
+        );
+
+        DB::table('departments')->insert(
+            array(
+                'id' => '3',
+                'name' => 'Calama C',
+                'customer_id' => '1',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            )
+        );
     }
 
     /**

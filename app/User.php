@@ -23,4 +23,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get Admin.
+     *
+     * @var array
+     */
+    public function admin()
+    {
+        return $this->hasOne('App\Admin');
+    }
 }
