@@ -12,9 +12,8 @@ class CreateReferentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('deposits', function (Blueprint $table) {
+        Schema::create('referets', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('name');
             $table->string('phone',10);
             $table->string('ci',10);
@@ -22,9 +21,10 @@ class CreateReferentsTable extends Migration
             $table->string('autorization',1);
             $table->string('state',1);
             $table->integer('department_id')->unsigned();
-                        $table->foreign('department_id')
-                              ->references('id')->on('departments')
-                              ->onDelete('cascade');
+            $table->foreign('department_id')
+                  ->references('id')->on('departments')
+                  ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -35,6 +35,6 @@ class CreateReferentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('deposits');
+        Schema::drop('referets');
     }
 }

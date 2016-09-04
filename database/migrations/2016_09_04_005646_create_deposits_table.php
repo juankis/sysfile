@@ -14,11 +14,11 @@ class CreateDepositsTable extends Migration
     {
         Schema::create('deposits', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('name');
             $table->string('address');
             $table->string('observations');
             $table->string('state', 1);
+            $table->timestamps();
         });
     }
 

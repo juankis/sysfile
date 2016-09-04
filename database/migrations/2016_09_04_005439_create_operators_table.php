@@ -14,15 +14,15 @@ class CreateOperatorsTable extends Migration
     {
         Schema::create('operators', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('name');
             $table->string('second_name');
             $table->string('phone');
             $table->string('address');
             $table->integer('user_id')->unsigned();
-                        $table->foreign('user_id')
-                              ->references('id')->on('users')
-                              ->onDelete('cascade'); 
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
+            $table->timestamps(); 
         });
     }
 
