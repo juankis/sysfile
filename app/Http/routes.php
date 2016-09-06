@@ -13,7 +13,11 @@
 
 Route::get('/', function () {
 
-    return view('layouts.adminLayout');
+    return view('home');
+});
+Route::group(['prefix' => 'sysfile'], function () {
+    Route::resource('customers','CustomersController');
+   // Route::get('/customers/{id}/destroy','CustomersController@destroy');
 });
 
 Route::auth();

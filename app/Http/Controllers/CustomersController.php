@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Customer;
+
+use Laracasts\Flash\Flash;
+
+use Session;
+
 class CustomersController extends Controller
 {
     /**
@@ -15,7 +21,7 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        //
+        return View('customers.index');
     }
 
     /**
@@ -25,7 +31,7 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        //
+        return View('customers.templeate');
     }
 
     /**
@@ -36,7 +42,8 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        return View('customers.index');
     }
 
     /**
