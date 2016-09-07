@@ -12,7 +12,7 @@ class CreateReferentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('referets', function (Blueprint $table) {
+        Schema::create('referents', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('phone',10);
@@ -27,7 +27,7 @@ class CreateReferentsTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('referets')->insert(
+        DB::table('referents')->insert(
             array(
                 'id' => '1',
                 'name' => 'Fernando M.',
@@ -42,7 +42,7 @@ class CreateReferentsTable extends Migration
             )
         );
 
-        DB::table('referets')->insert(
+        DB::table('referents')->insert(
             array(
                 'id' => '2',
                 'name' => 'Fidel',
@@ -57,7 +57,7 @@ class CreateReferentsTable extends Migration
             )
         );
 
-        DB::table('referets')->insert(
+        DB::table('referents')->insert(
             array(
                 'id' => '3',
                 'name' => 'Mauricio',
@@ -80,6 +80,6 @@ class CreateReferentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('referets');
+        Schema::drop('referents');
     }
 }

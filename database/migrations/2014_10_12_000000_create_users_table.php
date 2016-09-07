@@ -20,6 +20,39 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+            array(
+                'id' => '1',
+                'name' => 'juan1',
+                'email' => 'juan1@hotmail.com',
+                'password' => bcrypt('7868758765'),
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            )
+        );
+
+        DB::table('users')->insert(
+            array(
+                'id' => '2',
+                'name' => 'carlos',
+                'email' => 'carlos@hotmail.com',
+                'password' => bcrypt('89798798'),
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            )
+        );
+
+        DB::table('users')->insert(
+            array(
+                'id' => '3',
+                'name' => 'juan_carlos',
+                'email' => 'juan_carlos@hotmail.com',
+                'password' => bcrypt('7324765'),
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            )
+        );
     }
 
     /**

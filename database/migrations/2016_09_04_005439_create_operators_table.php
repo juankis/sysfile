@@ -24,6 +24,45 @@ class CreateOperatorsTable extends Migration
                   ->onDelete('cascade');
             $table->timestamps(); 
         });
+
+        DB::table('operators')->insert(
+            array(
+                'id' => '1',
+                'name' => 'Juan Carlos',
+                'second_name' => ' Ojeda Gomez',
+                'phone' => '7868758765',
+                'address' => 'Calama 5464',
+                'user_id' => '1',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            )
+        );
+
+        DB::table('operators')->insert(
+            array(
+                'id' => '2',
+                'name' => 'Javier',
+                'second_name' => 'Vasquez',
+                'phone' => '78435345',
+                'address' => 'San Martin 623',
+                'user_id' => '2',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            )
+        );
+
+        DB::table('operators')->insert(
+            array(
+                'id' => '3',
+                'name' => 'Fernando',
+                'second_name' => 'Marin',
+                'phone' => '75645654',
+                'address' => 'Esteban Arce 456',
+                'user_id' => '3',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            )
+        );
     }
 
     /**
