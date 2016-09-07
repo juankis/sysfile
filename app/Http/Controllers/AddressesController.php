@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Address;
+
 class AddressesController extends Controller
 {
     /**
@@ -15,7 +17,8 @@ class AddressesController extends Controller
      */
     public function index()
     {
-        //
+         $addresses = Address::all();
+        return View('addresses.index')->with('addresses', $addresses);
     }
 
     /**

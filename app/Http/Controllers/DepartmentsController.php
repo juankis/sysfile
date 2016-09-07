@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Department;
+
 class DepartmentsController extends Controller
 {
     /**
@@ -15,7 +17,8 @@ class DepartmentsController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::all();
+        return View('departments.index')->with('departments', $departments);
     }
 
     /**

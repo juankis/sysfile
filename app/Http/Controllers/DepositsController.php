@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Deposit;
+
 class DepositsController extends Controller
 {
     /**
@@ -15,7 +17,8 @@ class DepositsController extends Controller
      */
     public function index()
     {
-        //
+        $deposits = Deposit::all();
+        return View('deposits.index')->with('deposits', $deposits);
     }
 
     /**
@@ -25,7 +28,7 @@ class DepositsController extends Controller
      */
     public function create()
     {
-        //
+        return View('deposits.templeate');
     }
 
     /**

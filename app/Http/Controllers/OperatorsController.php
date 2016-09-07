@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Operator;
+
 class OperatorsController extends Controller
 {
     /**
@@ -15,7 +17,8 @@ class OperatorsController extends Controller
      */
     public function index()
     {
-        //
+         $operators = Operator::all();
+        return View('operators.index')->with('operators', $operators);
     }
 
     /**
@@ -25,7 +28,7 @@ class OperatorsController extends Controller
      */
     public function create()
     {
-        //
+        return View('operators.templeate');
     }
 
     /**

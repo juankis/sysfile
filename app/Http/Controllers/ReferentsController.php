@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Referent;
+
 class ReferentsController extends Controller
 {
     /**
@@ -15,7 +17,8 @@ class ReferentsController extends Controller
      */
     public function index()
     {
-        //
+         $referents = Referent::all();
+        return View('referents.index')->with('referents', $referents);
     }
 
     /**
@@ -25,7 +28,7 @@ class ReferentsController extends Controller
      */
     public function create()
     {
-        //
+        return View('referents.templeate');
     }
 
     /**

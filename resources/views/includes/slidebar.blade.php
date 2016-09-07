@@ -6,20 +6,26 @@
     <ul class="nav side-menu">
       <li><a><i class="fa fa-users"></i> Clientes <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
-          <li><a href="form.html">Lista Cliente</a></li>
-          <li><a href="form_advanced.html">Crear Cliente</a></li>
+          <li><a href="{{ route('sysfile.customers.index')}}">Lista Cliente</a></li>
+          <li><a href="#">Crear Cliente</a></li>
         </ul>
       </li>
       <li><a><i class="fa fa-suitcase"></i> Departamentos Clientes <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
-          <li><a href="form.html">Lista Departamentos</a></li>
-          <li><a href="form_advanced.html">Crear Departamento</a></li>
+          <li><a href="{{ route('sysfile.departments.index')}}">Lista Departamentos</a></li>
+          <li><a href="#">Crear Departamento</a></li>
         </ul>
       </li>
       <li><a><i class="fa fa-male"></i> Referentes Clientes <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
-          <li><a href="form.html">Lista Referentes</a></li>
-          <li><a href="form_advanced.html">Crear Referente</a></li>
+          <li><a href="{{ route('sysfile.referents.index')}}">Lista Referentes</a></li>
+          <li><a href="#">Crear Referente</a></li>
+        </ul>
+      </li>
+      <li><a><i class="fa fa-user"></i> Direcciones Clientes <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+          <li><a href="{{ route('sysfile.addresses.index')}}">Lista Direcciones</a></li>
+          <li><a href="#">Crear Direccion</a></li>
         </ul>
       </li>
     </ul>
@@ -29,14 +35,14 @@
     <ul class="nav side-menu">
       <li><a><i class="fa fa-building"></i> Depositos <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
-          <li><a href="general_elements.html">Lista Depositos</a></li>
-          <li><a href="media_gallery.html">Crear Deposito</a></li>
+          <li><a href="{{ route('sysfile.deposits.index')}}">Lista Depositos</a></li>
+          <li><a href="#">Crear Deposito</a></li>
         </ul>
       </li>
       <li><a><i class="fa fa-user"></i> Operadores <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
-          <li><a href="general_elements.html">Lista Operadores</a></li>
-          <li><a href="media_gallery.html">Crear Operador</a></li>
+          <li><a href="{{ route('sysfile.operators.index')}}">Lista Operadores</a></li>
+          <li><a href="#">Crear Operador</a></li>
         </ul>
       </li>
     </ul>

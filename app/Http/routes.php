@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::group(['prefix' => 'sysfile'], function () {
     Route::resource('customers','CustomersController');
    // Route::get('/customers/{id}/destroy','CustomersController@destroy');
+    
+    Route::resource('departments','DepartmentsController');
+    Route::resource('deposits','DepositsController');
+    Route::resource('operators','OperatorsController');
+    Route::resource('referents','ReferentsController');
+    Route::resource('addresses','AddressesController');
 });
 
 Route::auth();

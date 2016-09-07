@@ -21,7 +21,8 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        return View('customers.index');
+        $customers = Customer::all();
+        return View('customers.index')->with('customers', $customers);
     }
 
     /**
