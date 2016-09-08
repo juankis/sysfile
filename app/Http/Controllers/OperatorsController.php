@@ -17,7 +17,7 @@ class OperatorsController extends Controller
      */
     public function index()
     {
-         $operators = Operator::all();
+        $operators = Operator::all();
         return View('operators.index')->with('operators', $operators);
     }
 
@@ -61,7 +61,8 @@ class OperatorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $operator = operator::find($id);
+        return View('operators.templeate')->with('operator', $operator);
     }
 
     /**
@@ -73,7 +74,7 @@ class OperatorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('sysfile.operators.index');
     }
 
     /**

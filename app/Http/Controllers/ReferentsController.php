@@ -61,7 +61,8 @@ class ReferentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $referent = referent::find($id);
+        return View('referents.templeate')->with('referent', $referent);
     }
 
     /**
@@ -73,7 +74,7 @@ class ReferentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('sysfile.referents.index');
     }
 
     /**

@@ -28,7 +28,7 @@ class DepartmentsController extends Controller
      */
     public function create()
     {
-        //
+        return View('departments.templeate');
     }
 
     /**
@@ -39,7 +39,7 @@ class DepartmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('sysfile.departments.index');
     }
 
     /**
@@ -61,7 +61,8 @@ class DepartmentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $department = Department::find($id);
+        return View('departments.templeate')->with('department', $department);
     }
 
     /**
@@ -73,7 +74,7 @@ class DepartmentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('sysfile.departments.index');
     }
 
     /**

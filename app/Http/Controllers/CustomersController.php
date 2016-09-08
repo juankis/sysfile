@@ -43,8 +43,7 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-
-        return View('customers.index');
+        return redirect()->route('sysfile.customers.index');
     }
 
     /**
@@ -66,7 +65,8 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = Customer::find($id);
+        return View('customers.templeate')->with('customer', $customer);
     }
 
     /**
@@ -78,7 +78,7 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('sysfile.customers.index');
     }
 
     /**

@@ -61,7 +61,8 @@ class DepositsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $deposit = Deposit::find($id);
+        return View('deposits.templeate')->with('deposit', $deposit);
     }
 
     /**
@@ -73,7 +74,7 @@ class DepositsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('sysfile.deposits.index');
     }
 
     /**

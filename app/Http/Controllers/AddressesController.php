@@ -17,7 +17,7 @@ class AddressesController extends Controller
      */
     public function index()
     {
-         $addresses = Address::all();
+        $addresses = Address::all();
         return View('addresses.index')->with('addresses', $addresses);
     }
 
@@ -28,7 +28,7 @@ class AddressesController extends Controller
      */
     public function create()
     {
-        //
+        return View('addresses.templeate');
     }
 
     /**
@@ -39,7 +39,7 @@ class AddressesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('sysfile.addresses.index');
     }
 
     /**
@@ -61,7 +61,8 @@ class AddressesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $address = Address::find($id);
+        return View('addresses.templeate')->with('address', $address);
     }
 
     /**
@@ -73,7 +74,7 @@ class AddressesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('sysfile.addresses.index');
     }
 
     /**
