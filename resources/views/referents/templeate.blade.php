@@ -7,7 +7,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>{{ isset($referent) ? "Crear" : "Editar" }} Referente</h2>
+        <h2>{{ isset($referent) ? "Editar" : "Crear" }} Referente</h2>
           @include('includes.headerContainer')
         <div class="clearfix"></div>
       </div>
@@ -22,7 +22,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="name" name="name" value="{{ isset($referent) ? $referent->name : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="1" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+              <input id="name" name="name" value="{{ isset($referent) ? $referent->name : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="1" placeholder="Nombre Completo" required="required" type="text">
             </div>
           </div>
           <div class="item form-group">
@@ -36,21 +36,21 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">CI <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="address" name="address" value="{{ isset($referent) ? $referent->address : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="1" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+              <input id="ci" name="ci" value="{{ isset($referent) ? $referent->ci : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="1" placeholder="Cedula de Identidad" required="required" type="text">
             </div>
           </div>
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email 
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="email" id="email" name="email" value="{{ isset($customer) ? $customer->email : null }}" class="form-control col-md-7 col-xs-12">
+              <input type="email" id="email" name="email" value="{{ isset($referent) ? $referent->email : null }}" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Autorizacion
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="phone" name="phone" value="{{ isset($referent) ? $referent->phone : null }}" data-validate-minmax="0,1" class="form-control col-md-7 col-xs-12">
+              <input type="number" id="autorization" name="autorization" value="{{ isset($referent) ? $referent->autorization : null }}" data-validate-minmax="1,1" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
                

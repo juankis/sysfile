@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 use App\Referent;
 
+use Laracasts\Flash\Flash;
+
+use Session;
+
 class ReferentsController extends Controller
 {
     /**
@@ -39,7 +43,11 @@ class ReferentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $referent = new referent($request->all());
+        $referent->department_id = 1;
+        $referent->save();
+        Flash::info('El Departamento se ha creado correctamente');
+        return redirect()->route('sysfile.referents.index');
     }
 
     /**
@@ -74,6 +82,10 @@ class ReferentsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $referent = Referent::find($id);
+        $referent->fill($request->all());
+        $referent->save();
+        Flash::info('El Referente se ha editado correctamente');
         return redirect()->route('sysfile.referents.index');
     }
 
@@ -85,6 +97,9 @@ class ReferentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $referent = Referent::find($id);
+        $referent->delete();
+        Flash::info('El Referente se ha eliminado correctamente');
+        return redirect()->route('sysfile.referents.index')->with('success','noticia');
     }
 }

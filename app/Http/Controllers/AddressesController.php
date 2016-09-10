@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 use App\Address;
 
+use Laracasts\Flash\Flash;
+
+use Session;
+
 class AddressesController extends Controller
 {
     /**
@@ -39,6 +43,10 @@ class AddressesController extends Controller
      */
     public function store(Request $request)
     {
+        $address = new Address($request->all());
+        $address->customer_id = 1;
+        $address->save();
+        Flash::info('El La direccion se ha creado correctamente');
         return redirect()->route('sysfile.addresses.index');
     }
 
@@ -74,6 +82,10 @@ class AddressesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $address = Address::find($id);
+        $address->fill($request->all());
+        $address->save();
+        Flash::info('La Direccion se ha editado correctamente');
         return redirect()->route('sysfile.addresses.index');
     }
 
@@ -85,6 +97,9 @@ class AddressesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $address = address::find($id);
+        $address->delete();
+        Flash::info('La Direccion se ha eliminado correctamente');
+        return redirect()->route('sysfile.addresses.index')->with('success','noticia');
     }
 }

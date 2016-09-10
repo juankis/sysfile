@@ -6,7 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Http\Requests\DepartmentRequest;
+
 use App\Department;
+
+use Laracasts\Flash\Flash;
+
+use Session;
 
 class DepartmentsController extends Controller
 {
@@ -39,6 +45,17 @@ class DepartmentsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $department = new Department($request->all());
+        $department->customer_id = 1;
+        $department->save();
+        /*
+        $department = new Department();
+        $department->name = $request->name;
+        $department->customer_id = 1;
+        $department->save();
+        */
+        Flash::info('El Departamento se ha creado correctamente');
         return redirect()->route('sysfile.departments.index');
     }
 
@@ -74,6 +91,10 @@ class DepartmentsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $department = Department::find($id);
+        $department->fill($request->all());
+        $department->save();
+        Flash::info('El Departamento se ha editado correctamente');
         return redirect()->route('sysfile.departments.index');
     }
 
@@ -85,6 +106,9 @@ class DepartmentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $department = Department::find($id);
+        $department->delete();
+        Flash::info('El Departamento se ha eliminado correctamente');
+        return redirect()->route('sysfile.departments.index')->with('success','noticia');
     }
 }

@@ -49,7 +49,22 @@
             <td>{{ $address->customer_id }}</td>
             <td>{{ $address->created_at }}</td>
             <td>{{ $address->updated_at }}</td>
-            <td>Editar</td>
+            <td>
+              <div class="text-center dropdown" id="user-header">
+                  <button type="button" class="btn btn-sm btn-primary" aria-expanded="false"href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                      <i class="glyphicon glyphicon-th-list">&nbsp;</i><span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    
+                    <li>
+                      <a href="{{ route('sysfile.addresses.edit', $address->id)}}"><i class="glyphicon glyphicon-edit"></i><span>Editar</span></a>
+                    </li>
+                    <li>
+                      <a href="{{ route('sysfile.addresses.destroy', $address->id)}}"><i  class="glyphicon glyphicon-remove"></i><span>Borrar</span></a>
+                    </li>
+                  </ul>
+              </div>
+            </td>
           </tr>
           @endforeach
             

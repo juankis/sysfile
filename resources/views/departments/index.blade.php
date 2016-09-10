@@ -45,7 +45,22 @@
             <td>{{ $department->customer_id }}</td> 
             <td>{{ $department->created_at }}</td>
             <td>{{ $department->updated_at }}</td>
-            <td>Editar, eliminar</td>
+            <td>
+              <div class="text-center dropdown" id="user-header">
+                  <button type="button" class="btn btn-sm btn-primary" aria-expanded="false"href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                      <i class="glyphicon glyphicon-th-list">&nbsp;</i><span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    
+                    <li>
+                      <a href="{{ route('sysfile.departments.edit', $department->id)}}"><i class="glyphicon glyphicon-edit"></i><span>Editar</span></a>
+                    </li>
+                    <li>
+                      <a href="{{ route('sysfile.departments.destroy', $department->id)}}"><i  class="glyphicon glyphicon-remove"></i><span>Borrar</span></a>
+                    </li>
+                  </ul>
+              </div>
+            </td>
           </tr>
           @endforeach
             

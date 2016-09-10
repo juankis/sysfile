@@ -7,7 +7,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>{{ isset($department) ? "Crear" : "Editar" }} Departamentos</h2>
+        <h2>{{ isset($department) ? "Editar" : "Crear" }} Departamentos</h2>
           @include('includes.headerContainer')
         <div class="clearfix"></div>
       </div>

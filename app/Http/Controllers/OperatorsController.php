@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 use App\Operator;
 
+use Laracasts\Flash\Flash;
+
+use Session;
+
 class OperatorsController extends Controller
 {
     /**
@@ -39,7 +43,11 @@ class OperatorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $operator = new Operator($request->all());
+        $operator->user_id = 1;
+        $operator->save();
+        Flash::info('El Operador se ha creado correctamente');
+        return redirect()->route('sysfile.operators.index');
     }
 
     /**
@@ -74,6 +82,10 @@ class OperatorsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $operator = Operator::find($id);
+        $operator->fill($request->all());
+        $operator->save();
+        Flash::info('El Operator se ha editado correctamente');
         return redirect()->route('sysfile.operators.index');
     }
 
@@ -85,6 +97,9 @@ class OperatorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $operator = Operator::find($id);
+        $operator->delete();
+        Flash::info('El Operador se ha eliminado correctamente');
+        return redirect()->route('sysfile.operators.index')->with('success','noticia');
     }
 }

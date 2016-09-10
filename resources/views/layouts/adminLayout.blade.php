@@ -60,6 +60,16 @@
             </div>
           </div>
           <div class="clearfix"></div>
+          @if(count($errors)>0)
+
+                        <div class="alert alert-danger">Errores
+                          <ul>
+                            @foreach($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                            @endforeach
+                          </ul>
+                        </div>
+                      @endif
           @yield('content')
         </div>
         <!-- /page content -->

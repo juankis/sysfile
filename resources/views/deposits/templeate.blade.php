@@ -7,7 +7,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>{{ isset($deposit) ? "Crear" : "Editar" }} Deposito</h2>
+        <h2>{{ isset($deposit) ? "Editar" : "Crear" }} Deposito</h2>
           @include('includes.headerContainer')
         <div class="clearfix"></div>
       </div>
@@ -22,21 +22,21 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="name" name="name" value="{{ isset($deposit) ? $deposit->name : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="1" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+              <input id="name" name="name" value="{{ isset($deposit) ? $deposit->name : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" placeholder="Nombre Completo" required="required" type="text">
             </div>
           </div>
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Direccion <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="address" name="address" value="{{ isset($deposit) ? $deposit->address : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="1" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+              <input id="address" name="address" value="{{ isset($deposit) ? $deposit->address : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" placeholder="Direccion" required="required" type="text">
             </div>
           </div>
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="observation" name="observation" value="{{ isset($deposit) ? $deposit->observation : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="1" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+              <input id="observation" name="observation" value="{{ isset($deposit) ? $deposit->observation : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" placeholder="Observacion" required="required" type="text">
             </div>
           </div>      
           <div class="ln_solid"></div>

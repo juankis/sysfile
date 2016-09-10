@@ -16,14 +16,19 @@ Route::get('/', function () {
     return view('home');
 });
 Route::group(['prefix' => 'sysfile'], function () {
+	Route::resource('deposits','DepositsController');
     Route::resource('customers','CustomersController');
-   // Route::get('/customers/{id}/destroy','CustomersController@destroy');
-    
-    Route::resource('departments','DepartmentsController');
-    Route::resource('deposits','DepositsController');
     Route::resource('operators','OperatorsController');
     Route::resource('referents','ReferentsController');
     Route::resource('addresses','AddressesController');
+    Route::resource('departments','DepartmentsController');
+    //DELETS
+    Route::get('/address/{id}/destroy',['uses' => 'AddressesController@destroy','as' => 'sysfile.addresses.destroy']);
+    Route::get('/deposit/{id}/destroy',['uses' => 'DepositsController@destroy','as' => 'sysfile.deposits.destroy']);
+    Route::get('/customer/{id}/destroy',['uses' => 'CustomersController@destroy','as' => 'sysfile.customers.destroy']);
+    Route::get('/referent/{id}/destroy',['uses' => 'ReferentsController@destroy','as' => 'sysfile.referents.destroy']);
+    Route::get('/operator/{id}/destroy',['uses' => 'OperatorsController@destroy','as' => 'sysfile.operators.destroy']);
+    Route::get('/department/{id}/destroy',['uses' => 'DepartmentsController@destroy','as' => 'sysfile.departments.destroy']);
 });
 
 Route::auth();

@@ -36,7 +36,7 @@
               <th>Email</th>
               <th>Autorizacion</th>
               <th>ID Departamento</th>
-              <th>Creado en</th>
+             <!-- <th>Creado en</th> -->
               <th>Actualizado en</th>
               <th>Acciones</th>
             </tr>
@@ -51,9 +51,22 @@
             <td>{{ $referent->email }}</td>
             <td>{{ $referent->autorization }}</td>
             <td>{{ $referent->department_id }}</td>
-            <td>{{ $referent->created_at }}</td>
+            <!--<td>{{ $referent->created_at }}</td>-->
             <td>{{ $referent->updated_at }}</td>
-            <td>Editar, eliminar</td>
+            <td><div class="text-center dropdown" id="user-header">
+                  <button type="button" class="btn btn-sm btn-primary" aria-expanded="false"href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                      <i class="glyphicon glyphicon-th-list">&nbsp;</i><span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    
+                    <li>
+                      <a href="{{ route('sysfile.referents.edit', $referent->id)}}"><i class="glyphicon glyphicon-edit"></i><span>Editar</span></a>
+                    </li>
+                    <li>
+                      <a href="{{ route('sysfile.referents.destroy', $referent->id)}}"><i  class="glyphicon glyphicon-remove"></i><span>Borrar</span></a>
+                    </li>
+                  </ul>
+              </div></td>
           </tr>
           @endforeach
             

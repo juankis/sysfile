@@ -7,7 +7,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>{{ isset($address) ? "Crear" : "Editar" }} Address</h2>
+        <h2>{{ isset($address) ? "Editar" : "Crear" }} Address</h2>
           @include('includes.headerContainer')
         <div class="clearfix"></div>
       </div>
@@ -22,11 +22,11 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Direccion <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="address" name="address" value="{{ isset($address) ? $address->address : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="1" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+              <input id="address" name="address" value="{{ isset($address) ? $address->address : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="" placeholder="Direccion" required="required" type="text">
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Phone 
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Telefono 
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="number" id="phone" name="phone" value="{{ isset($address) ? $address->phone : null }}" data-validate-minmax="4,10" class="form-control col-md-7 col-xs-12">

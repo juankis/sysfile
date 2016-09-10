@@ -43,6 +43,9 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
+        $customer = new customer($request->all());
+        $customer->save();
+        Flash::info('El Cliente se ha creado correctamente');
         return redirect()->route('sysfile.customers.index');
     }
 
@@ -78,6 +81,10 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $customer = Customer::find($id);
+        $customer->fill($request->all());
+        $customer->save();
+        Flash::info('El Customer se ha editado correctamente');
         return redirect()->route('sysfile.customers.index');
     }
 
@@ -89,6 +96,9 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->delete();
+        Flash::info('El Cliente se ha eliminado correctamente');
+        return redirect()->route('sysfile.customers.index')->with('success','noticia');
     }
 }

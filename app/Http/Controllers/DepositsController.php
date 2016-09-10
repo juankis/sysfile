@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 use App\Deposit;
 
+use Laracasts\Flash\Flash;
+
+use Session;
+
 class DepositsController extends Controller
 {
     /**
@@ -39,7 +43,10 @@ class DepositsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $deposit = new Deposit($request->all());
+        $deposit->save();
+        Flash::info('El Deposito se ha creado correctamente');
+        return redirect()->route('sysfile.deposits.index');
     }
 
     /**
@@ -74,6 +81,10 @@ class DepositsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $deposit = Deposit::find($id);
+        $deposit->fill($request->all());
+        $deposit->save();
+        Flash::info('El Deposito se ha editado correctamente');
         return redirect()->route('sysfile.deposits.index');
     }
 
@@ -85,6 +96,9 @@ class DepositsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deposit = Deposit::find($id);
+        $deposit->delete();
+        Flash::info('El Deposito se ha eliminado correctamente');
+        return redirect()->route('sysfile.deposits.index')->with('success','noticia');
     }
 }
