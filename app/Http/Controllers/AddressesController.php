@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Address;
 
+use App\Customer;
+
 use Laracasts\Flash\Flash;
 
 use Session;
@@ -32,7 +34,8 @@ class AddressesController extends Controller
      */
     public function create()
     {
-        return View('addresses.templeate');
+        $customers = Customer::orderBy('name', 'ASC')->lists('name', 'id');
+        return View('addresses.templeate')->with('customers', $customers);
     }
 
     /**
@@ -44,7 +47,6 @@ class AddressesController extends Controller
     public function store(Request $request)
     {
         $address = new Address($request->all());
-        $address->customer_id = 1;
         $address->save();
         Flash::info('El La direccion se ha creado correctamente');
         return redirect()->route('sysfile.addresses.index');
@@ -69,8 +71,10 @@ class AddressesController extends Controller
      */
     public function edit($id)
     {
+        $customers = Customer::orderBy('name', 'ASC')->lists('name', 'id');
         $address = Address::find($id);
-        return View('addresses.templeate')->with('address', $address);
+        return View('addresses.templeate')->with('address', $address)
+                                          ->with('customers', $customers);
     }
 
     /**

@@ -53,7 +53,12 @@
               <input type="number" id="autorization" name="autorization" value="{{ isset($referent) ? $referent->autorization : null }}" data-validate-minmax="1,1" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
-               
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Departamentos </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {!! Form::select('department_id', $departments,  isset($referent) ? $referent->department_id : null, ['id'=>'clientes', 'data-type'=>'text', 'class'=>'select2_single form-control', 'tabindex'=>'-1', 'data-placeholder'=>'Seleccionar Cliente', 'required']) !!} 
+            </div>
+          </div>     
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
@@ -73,6 +78,12 @@
 @section('scripts')
 <!-- validator -->
 <script src="{{ asset('vendors/validator/validator.js')}}"></script>
-@include('includes.scriptValidation')
+<!-- Select2 -->
+<script src="{{ asset('vendors/select2/dist/js/select2.full.min.js')}}"></script>
+@include('includes.scriptForms')
 
+@endsection
+@section('css')
+<!-- Select2 -->
+    <link href="{{ asset('vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
 @endsection

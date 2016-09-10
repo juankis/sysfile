@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Referent;
 
+use App\Department;
+
 use Laracasts\Flash\Flash;
 
 use Session;
@@ -32,7 +34,8 @@ class ReferentsController extends Controller
      */
     public function create()
     {
-        return View('referents.templeate');
+        $departments = Department::orderBy('name', 'ASC')->lists('name', 'id');
+        return View('referents.templeate')->with('departments', $departments);
     }
 
     /**
@@ -44,7 +47,6 @@ class ReferentsController extends Controller
     public function store(Request $request)
     {
         $referent = new referent($request->all());
-        $referent->department_id = 1;
         $referent->save();
         Flash::info('El Departamento se ha creado correctamente');
         return redirect()->route('sysfile.referents.index');
@@ -70,7 +72,9 @@ class ReferentsController extends Controller
     public function edit($id)
     {
         $referent = referent::find($id);
-        return View('referents.templeate')->with('referent', $referent);
+        $departments = Department::orderBy('name', 'ASC')->lists('name', 'id');
+        return View('referents.templeate')->with('referent', $referent)
+                                          ->with('departments', $departments);
     }
 
     /**

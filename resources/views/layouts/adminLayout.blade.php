@@ -88,9 +88,11 @@
     <script src="{{ asset('vendors/fastclick/lib/fastclick.js')}}"></script>
     <!-- NProgress -->
     <script src="{{ asset('vendors/nprogress/nprogress.js')}}"></script>
+    
     @yield('scripts')
+
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('build/js/custom.min.js')}}"></script>
-    
+
   </body>
 </html>

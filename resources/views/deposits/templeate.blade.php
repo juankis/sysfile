@@ -58,6 +58,6 @@
 @section('scripts')
 <!-- validator -->
 <script src="{{ asset('vendors/validator/validator.js')}}"></script>
-@include('includes.scriptValidation')
+@include('includes.scriptForms')
 
 @endsection

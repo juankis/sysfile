@@ -33,7 +33,7 @@
               <th>Direccion</th>
               <th>Telefono</th>
               <th>Localidad</th>
-              <th>ID Cliente</th>
+              <th>Cliente [ID]</th>
               <th>Creado en</th>
               <th>Actualizado en</th>
               <th>Acciones</th>
@@ -46,7 +46,7 @@
             <td>{{ $address->address }}</td>
             <td>{{ $address->phone }}</td>
             <td>{{ $address->location }}</td>
-            <td>{{ $address->customer_id }}</td>
+            <td>{{ $address->customer->name}} [{{$address->customer->id}}]</td>
             <td>{{ $address->created_at }}</td>
             <td>{{ $address->updated_at }}</td>
             <td>

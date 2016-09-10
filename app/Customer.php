@@ -17,4 +17,10 @@ class Customer extends Model
     {
         return $this->hasMany('App\Department');
     }
+
+    public function addresses()
+    {
+        return $this->hasMany('App\Address');
+    }
+
 }

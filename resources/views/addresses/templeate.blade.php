@@ -46,7 +46,12 @@
               <input id="postal_code" name="postal_code" value="{{ isset($address) ? $address->postal_code : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,10" data-validate-words="1" placeholder="Codigo Postal" required="required" type="text">
             </div>
           </div>
-      
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Clientes </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {!! Form::select('customer_id', $customers, isset($address) ? $address->customer_id : null, ['id'=>'clientes', 'data-type'=>'text', 'class'=>'select2_single form-control', 'tabindex'=>'-1', 'data-placeholder'=>'Seleccionar Cliente', 'required']) !!} 
+            </div>
+          </div>
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
@@ -66,6 +71,12 @@
 @section('scripts')
 <!-- validator -->
 <script src="{{ asset('vendors/validator/validator.js')}}"></script>
-@include('includes.scriptValidation')
+<!-- Select2 -->
+<script src="{{ asset('vendors/select2/dist/js/select2.full.min.js')}}"></script>
+@include('includes.scriptForms')
 
+@endsection
+@section('css')
+<!-- Select2 -->
+    <link href="{{ asset('vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
 @endsection

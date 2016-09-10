@@ -10,6 +10,8 @@ use App\Http\Requests\DepartmentRequest;
 
 use App\Department;
 
+use App\Customer;
+
 use Laracasts\Flash\Flash;
 
 use Session;
@@ -34,7 +36,8 @@ class DepartmentsController extends Controller
      */
     public function create()
     {
-        return View('departments.templeate');
+        $customers = Customer::orderBy('name', 'ASC')->lists('name', 'id');
+        return View('departments.templeate')->with('customers', $customers);
     }
 
     /**
@@ -45,16 +48,8 @@ class DepartmentsController extends Controller
      */
     public function store(Request $request)
     {
-
         $department = new Department($request->all());
-        $department->customer_id = 1;
         $department->save();
-        /*
-        $department = new Department();
-        $department->name = $request->name;
-        $department->customer_id = 1;
-        $department->save();
-        */
         Flash::info('El Departamento se ha creado correctamente');
         return redirect()->route('sysfile.departments.index');
     }
@@ -78,8 +73,10 @@ class DepartmentsController extends Controller
      */
     public function edit($id)
     {
+        $customers = Customer::orderBy('name', 'ASC')->lists('name', 'id');
         $department = Department::find($id);
-        return View('departments.templeate')->with('department', $department);
+        return View('departments.templeate')->with('department', $department)
+                                            ->with('customers', $customers);
     }
 
     /**

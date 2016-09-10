@@ -35,8 +35,7 @@
               <th>CI</th>
               <th>Email</th>
               <th>Autorizacion</th>
-              <th>ID Departamento</th>
-             <!-- <th>Creado en</th> -->
+              <th>Departamento [ID]</th>
               <th>Actualizado en</th>
               <th>Acciones</th>
             </tr>
@@ -50,8 +49,7 @@
             <td>{{ $referent->ci }}</td>
             <td>{{ $referent->email }}</td>
             <td>{{ $referent->autorization }}</td>
-            <td>{{ $referent->department_id }}</td>
-            <!--<td>{{ $referent->created_at }}</td>-->
+            <td>{{ $referent->department->name}} [{{$referent->department->id}}]</td>
             <td>{{ $referent->updated_at }}</td>
             <td><div class="text-center dropdown" id="user-header">
                   <button type="button" class="btn btn-sm btn-primary" aria-expanded="false"href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">

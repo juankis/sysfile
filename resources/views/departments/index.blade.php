@@ -31,7 +31,7 @@
             <tr>
               <th>ID Departamento</th>
               <th>Nombre</th>
-              <th>ID Cliente</th>
+              <th>Cliente [ID]</th>
               <th>Creado en</th>
               <th>Actualizado en</th>
               <th>Acciones</th>
@@ -42,7 +42,7 @@
           <tr>
             <td>{{ $department->id }}</td>
             <td>{{ $department->name }}</td>
-            <td>{{ $department->customer_id }}</td> 
+            <td>{{ $department->customer->name}} [{{$department->customer->id}}]</td>
             <td>{{ $department->created_at }}</td>
             <td>{{ $department->updated_at }}</td>
             <td>

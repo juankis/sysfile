@@ -1,5 +1,5 @@
 @extends('layouts.adminLayout')
-@section('titlePage', 'departments')
+@section('titlePage', 'Departamentos')
 @section('content')
 <!-- page content -->
 
@@ -22,10 +22,15 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="name" name="name" value="{{ isset($department) ? $department->name : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="1" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+              <input id="name" name="name" value="{{ isset($department) ? $department->name : null }}" class="form-control col-md-7 col-xs-12" data-validate-length-range="3,255" data-validate-words="1" placeholder="Minimo 3 caracteres ..." required="required" type="text">
             </div>
           </div>
-          
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Clientes </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {!! Form::select('customer_id', $customers,  isset($department) ? $department->customer_id : null, ['id'=>'clientes', 'data-type'=>'text', 'class'=>'select2_single form-control', 'tabindex'=>'-1', 'data-placeholder'=>'Seleccionar Cliente', 'required']) !!} 
+            </div>
+          </div>
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
@@ -45,6 +50,13 @@
 @section('scripts')
 <!-- validator -->
 <script src="{{ asset('vendors/validator/validator.js')}}"></script>
-@include('includes.scriptValidation')
+<!-- Select2 -->
+<script src="{{ asset('vendors/select2/dist/js/select2.full.min.js')}}"></script>
+@include('includes.scriptForms')
 
+@endsection
+
+@section('css')
+<!-- Select2 -->
+    <link href="{{ asset('vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
 @endsection
