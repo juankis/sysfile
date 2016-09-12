@@ -14,9 +14,9 @@
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
             <li>
-            <a href="login.html"><i class="fa fa-cog"></i> Ajustes</a>
+            <a href="#"><i class="fa fa-cog"></i> Ajustes</a>
             </li>
-            <li><a href="login.html"><i class="fa fa-sign-out"></i> Salir</a></li>
+            <li><a href="{{ url('/sysfile/logout')}}"><i class="fa fa-sign-out"></i> Salir</a></li>
           </ul>
         </li>
         <!--

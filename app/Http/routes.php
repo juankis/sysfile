@@ -13,9 +13,10 @@
 
 Route::get('/', function () {
 
-    return view('home');
+    return view('layouts.login');
 });
 Route::group(['prefix' => 'sysfile'], function () {
+    Route::auth();
 	Route::resource('deposits','DepositsController');
     Route::resource('customers','CustomersController');
     Route::resource('operators','OperatorsController');
@@ -31,6 +32,8 @@ Route::group(['prefix' => 'sysfile'], function () {
     Route::get('/department/{id}/destroy',['uses' => 'DepartmentsController@destroy','as' => 'sysfile.departments.destroy']);
 });
 
-Route::auth();
 
-Route::get('/home', 'HomeController@index');
+
+//Route::get('/home', 'HomeController@index');
+
+
