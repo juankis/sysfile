@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
 
-    return view('layouts.login');
+    return view('home');
 });
 Route::group(['prefix' => 'sysfile'], function () {
     Route::auth();
